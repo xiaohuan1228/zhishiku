@@ -135,6 +135,26 @@
       .lib-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; font-weight: 600; }
       .lib-btn.active .count { background: rgba(255,255,255,.18); border-color: transparent; color: #fff; }
 
+      /* ---------- Daily ---------- */
+      .daily-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--primary);
+        border-radius: var(--radius);
+        padding: 16px 16px 14px;
+        margin: 18px 0 4px;
+      }
+      .daily-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 8px; }
+      .daily-kicker { font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--primary); background: var(--primary-soft); padding: 2px 8px; border-radius: 999px; }
+      .daily-date { font-size: 12.5px; color: var(--muted); }
+      .daily-remind { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+      .daily-title { margin: 0 0 6px; font-size: 17px; line-height: 1.4; color: var(--ink); font-weight: 700; }
+      .daily-content { white-space: pre-wrap; word-break: break-word; color: var(--body); line-height: 1.65; }
+      .daily-meta { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 10px; color: var(--muted); font-size: 12.5px; align-items: center; }
+      .daily-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .btn.learned { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); font-weight: 600; }
+      .daily-empty-note { color: var(--muted); font-size: 13.5px; line-height: 1.6; }
+
       .toolbar {
         display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
         margin: 12px 0 4px;
@@ -257,6 +277,7 @@
     </header>
 
     <div class="wrap">
+      <section id="dailySection" aria-label="每日一学"></section>
       <nav class="libs" aria-label="知识库分区">
         <ul class="lib-list" id="libList"></ul>
       </nav>
@@ -272,7 +293,8 @@
       <main id="listMain"></main>
 
       <footer>
-        <strong>说明：</strong>本页为公开版，仅含可公开内容。私人内容（财务、健康、公司内部数据、求职细节）不在此页。你在本页添加或修改的内容只保存在当前设备浏览器中，不会同步到公开页面；换设备请用导出/导入。
+        <strong>说明：</strong>本页为公开版，仅含可公开内容。私人内容（财务、健康、公司内部数据、求职细节）不在此页。你在本页添加或修改的内容只保存在当前设备浏览器中，不会同步到公开页面；换设备请用导出/导入。<br>
+        <strong>每日一学：</strong>2026-11-22 至 12-21 每天解锁一条（共 30 条），归入对应知识库并带 #每日一学 标签；未到日期的条目不会显示。提醒时间为每天 12:30，由助手消息提醒，本页按日期自动解锁。
       </footer>
     </div>
 
@@ -418,18 +440,52 @@
           { id: 'k5', lib: 'calib', title: 'WeRide Q3 营收 3.215 亿 +88%', content: 'WeRide 2026 Q3 营收 3.215 亿，同比 +88%。', tags: ['口径', '财报'], source: '公开财报', date: '2026-11-21', status: '已确认', origin: 'public' },
           { id: 'k6', lib: 'calib', title: 'WeRide Robotaxi 单季首破 1 亿 +204%', content: 'WeRide Robotaxi 单季收入首破 1 亿，同比 +204%。', tags: ['口径', '财报'], source: '公开财报', date: '2026-11-21', status: '已确认', origin: 'public' },
           { id: 'k7', lib: 'calib', title: 'Pony.ai Q3 Robotaxi 收入 1780 万美元 +165%', content: 'Pony.ai 2026 Q3 Robotaxi 收入 1780 万美元，同比 +165%。', tags: ['口径', '财报'], source: '公开财报', date: '2026-11-21', status: '已确认', origin: 'public' },
-          { id: 'k8', lib: 'calib', title: 'Pony.ai 车队 2768 辆', content: 'Pony.ai 车队规模口径：2768 辆。', tags: ['口径', '财报'], source: '公开财报', date: '2026-11-21', status: '已确认', origin: 'public' }
+          { id: 'k8', lib: 'calib', title: 'Pony.ai 车队 2768 辆', content: 'Pony.ai 车队规模口径：2768 辆。', tags: ['口径', '财报'], source: '公开财报', date: '2026-11-21', status: '已确认', origin: 'public' },
+
+          /* 每日一学（按日期解锁） */
+          { id: 'daily-01', lib: 'work', title: 'MECE 原则：拆解问题不重叠、不遗漏', content: '拆解问题时分类要相互独立、完全穷尽。检查方法：两两看有没有重叠，加起来等不等于整体。用于需求拆解、问题分析、竞品分类。拆完先自问一句：有没有哪两类其实是一回事，有没有漏掉一类。', tags: ['每日一学', '方法论'], source: '经典方法论', date: '2026-11-22', status: '已确认', origin: 'public', dailyDate: '2026-11-22' },
+          { id: 'daily-02', lib: 'comm', title: '金字塔原理：结论先行，自上而下', content: '上一层的结论由下一层的论点支撑；同一层的论点按逻辑顺序排列（时间、结构、重要性）。写汇报、做 PPT、回领导消息都用这一套。练习方法：写任何东西之前，先写一句话结论，再列支撑它的 2–3 个论点。', tags: ['每日一学', '表达'], source: '经典方法论', date: '2026-11-23', status: '已确认', origin: 'public', dailyDate: '2026-11-23' },
+          { id: 'daily-03', lib: 'industry', title: 'Robotaxi 商业化的三道关', content: '技术（无人化率）、牌照（各城市准入节奏不同）、成本（单车成本加运营成本降到低于人力成本）。三道关缺一不可，技术最先过、成本最后过。判断一家公司走到哪一步，看它卡在哪道关上。', tags: ['每日一学', 'Robotaxi'], source: '行业观察', date: '2026-11-24', status: '已确认', origin: 'public', dailyDate: '2026-11-24' },
+          { id: 'daily-04', lib: 'job', title: '面试 STAR 讲法进阶', content: 'Situation 一句话、Task 说清你的责任（不是团队的）、Action 讲你具体做了什么决定、Result 用数字。最容易丢分的是 Action 讲成团队做了什么，面试官要听的是你。每个故事准备之前先划出哪句是你的动作。', tags: ['每日一学', '面试'], source: '实践总结', date: '2026-11-25', status: '已确认', origin: 'public', dailyDate: '2026-11-25' },
+          { id: 'daily-05', lib: 'content', title: '内容的三种价值', content: '信息差（你知道别人不知道）、方法论（你能教会别人）、情绪共鸣（你说出别人想说的）。一篇内容至少占一种，占两种以上容易爆。写之前问一句：读者看完能带走什么。', tags: ['每日一学', '自媒体'], source: '实践总结', date: '2026-11-26', status: '已确认', origin: 'public', dailyDate: '2026-11-26' },
+          { id: 'daily-06', lib: 'personal', title: '刻意练习三要素', content: '走出舒适区（练不会的，不是重复会的）、及时反馈（有人纠正或自己对照标准）、专注重复（同一项练到自动化）。每天 30 分钟练一个薄弱点，比 2 小时泛练有效。', tags: ['每日一学', '学习方法'], source: '学习总结', date: '2026-11-27', status: '已确认', origin: 'public', dailyDate: '2026-11-27' },
+          { id: 'daily-07', lib: 'work', title: 'RACI 责任矩阵', content: 'R=执行、A=负责拍板（只有一个）、C=咨询、I=知情。每个任务只有一个 A；A 和 R 不是同一个人时要写清楚。跨部门协作动手前先拉一张 RACI 表，分歧一半出在责任不清上。', tags: ['每日一学', '协作'], source: '经典方法论', date: '2026-11-28', status: '已确认', origin: 'public', dailyDate: '2026-11-28' },
+          { id: 'daily-08', lib: 'comm', title: '非暴力沟通四步', content: '观察（不带评价的事实）→感受→需要→请求。例如：“这个需求延期了三天（观察），我有点担心上线时间（感受），我需要知道新的交付时间（需要），你今天能给我一个更新后的排期吗（请求）”。不说“你总是拖延”这种评价。', tags: ['每日一学', '沟通'], source: '经典方法论', date: '2026-11-29', status: '已确认', origin: 'public', dailyDate: '2026-11-29' },
+          { id: 'daily-09', lib: 'industry', title: '无人配送与 Robotaxi 的运营差异', content: '配送没有乘客，安全标准和监管相对宽松，商业化更快；但客单价低，靠密度和规模摊成本。看无人配送看单量密度，看 Robotaxi 看无人化率和单车日均订单。两个赛道不要用同一套指标衡量。', tags: ['每日一学', '无人配送'], source: '行业观察', date: '2026-11-30', status: '已确认', origin: 'public', dailyDate: '2026-11-30' },
+          { id: 'daily-10', lib: 'job', title: '薪资谈判的锚点', content: '先让对方出价；对方问期望时给范围不给单点，范围下限是你能接受的最低值；总包要拆开谈（基本工资、奖金、期权、福利），不要只看一个数字。谈之前先定好自己的底线和理想值，写在纸上。', tags: ['每日一学', '谈判'], source: '实践总结', date: '2026-12-01', status: '已确认', origin: 'public', dailyDate: '2026-12-01' },
+          { id: 'daily-11', lib: 'content', title: '选题的验证方法', content: '先发一条短内容试水，看评论区问什么，再决定要不要写深篇。不要闭门造车写长文，数据会告诉你读者要什么。评论区的高频问题就是下一篇选题。', tags: ['每日一学', '自媒体'], source: '实践总结', date: '2026-12-02', status: '已确认', origin: 'public', dailyDate: '2026-12-02' },
+          { id: 'daily-12', lib: 'personal', title: '英语面试的 PAR 句式', content: 'Problem（遇到什么问题）- Action（你做了什么）- Result（结果）。每个回答控制在 3–4 句话，先说结论再展开；准备 6–8 个 PAR 故事覆盖常见问题。回答前先想好第一句结论是什么。', tags: ['每日一学', '英语'], source: '学习总结', date: '2026-12-03', status: '已确认', origin: 'public', dailyDate: '2026-12-03' },
+          { id: 'daily-13', lib: 'work', title: '5 Whys：追到根因', content: '连续问 5 个为什么，追到根因。注意：问到流程和系统层面就停，不要追到个人身上；每个为什么要有证据支撑，不是猜。问完要落到一个可改的动作上，否则白问。', tags: ['每日一学', '问题分析'], source: '经典方法论', date: '2026-12-04', status: '已确认', origin: 'public', dailyDate: '2026-12-04' },
+          { id: 'daily-14', lib: 'comm', title: '会议的 3 个角色', content: '主持人（控议程和时间）、记录人（记结论和待办）、决策人（拍板）。会前发议程，会后发纪要；没有议程的会可以不参加。开会前先确认：这个会要决定什么事。', tags: ['每日一学', '会议'], source: '实践总结', date: '2026-12-05', status: '已确认', origin: 'public', dailyDate: '2026-12-05' },
+          { id: 'daily-15', lib: 'industry', title: '远程安全员的人车比是运营成本关键', content: '1 个安全员能盯几台车，直接决定单车运营成本。行业方向是提高人车比，靠系统分级处理：系统先处理常见异常，人才接管真正需要人的情况。看运营成本先看这个比值。', tags: ['每日一学', '运营'], source: '行业观察', date: '2026-12-06', status: '已确认', origin: 'public', dailyDate: '2026-12-06' },
+          { id: 'daily-16', lib: 'job', title: '反问环节问什么', content: '问团队当前最大的挑战、这个岗位三个月内要交付什么、团队怎么决策。不要问官网能查到的；不要直接问加班多不多，换个问法：团队平时的工作节奏是怎样的。反问是面试官判断你思考深度的地方。', tags: ['每日一学', '面试'], source: '实践总结', date: '2026-12-07', status: '已确认', origin: 'public', dailyDate: '2026-12-07' },
+          { id: 'daily-17', lib: 'content', title: '副业定价的起步法', content: '先按时间成本定价，再按结果定价。第一单可以便宜，但要换回来三样东西：案例、推荐、复盘。没有这三样，便宜就是白干。定价之前先算清自己的时间成本是多少。', tags: ['每日一学', '副业'], source: '实践总结', date: '2026-12-08', status: '已确认', origin: 'public', dailyDate: '2026-12-08' },
+          { id: 'daily-18', lib: 'personal', title: '力量训练的渐进超负荷', content: '想持续进步，每周要比上周多一点点：多一个重量、多一次、多一组。三者只变一个，不要同时加。遇到平台期先看是不是三个都没变，再看睡眠和饮食。', tags: ['每日一学', '健身'], source: '学习总结', date: '2026-12-09', status: '已确认', origin: 'public', dailyDate: '2026-12-09' },
+          { id: 'daily-19', lib: 'work', title: '影响/努力矩阵排优先级', content: '需求按影响和工作量分四象限：高影响低努力先做（速赢）、高影响高努力排期、低影响低努力顺手做、低影响高努力不做。优先级讨论时先把需求都放进矩阵再吵，不要凭感觉争。', tags: ['每日一学', '优先级'], source: '经典方法论', date: '2026-12-10', status: '已确认', origin: 'public', dailyDate: '2026-12-10' },
+          { id: 'daily-20', lib: 'comm', title: '拒绝的公式', content: '肯定对方 + 说清原因 + 给替代方案。“这个需求我理解很重要，但这周排期已经满了，我可以下周二开始，或者你看能不能先砍掉 X 功能，我们这周先上核心部分。”拒绝时带上替代方案，对方接受度会高很多。', tags: ['每日一学', '沟通'], source: '实践总结', date: '2026-12-11', status: '已确认', origin: 'public', dailyDate: '2026-12-11' },
+          { id: 'daily-21', lib: 'industry', title: '地图是无人车的隐性成本', content: '高精地图要持续更新，道路一变就要重采，地图制作周期经常是交付瓶颈。看交付进度先看地图环节；评估一个城市能不能快速开城，先问地图 ready 了没有。', tags: ['每日一学', '无人车'], source: '行业观察', date: '2026-12-12', status: '已确认', origin: 'public', dailyDate: '2026-12-12' },
+          { id: 'daily-22', lib: 'job', title: '简历的动词法则', content: '每条经历以动词开头（搭建、推动、主导、优化），不用“负责”“参与”这种弱动词；每条带一个可验证的结果。写完通读一遍，把所有“负责”都换掉。', tags: ['每日一学', '简历'], source: '实践总结', date: '2026-12-13', status: '已确认', origin: 'public', dailyDate: '2026-12-13' },
+          { id: 'daily-23', lib: 'content', title: '冷启动的 100 个精准用户', content: '100 个精准用户比 1 万个泛粉值钱。前 100 个用户要一个一个聊，知道他们是谁、为什么来、还缺什么。泛流量等产品定型了再做，过早追流量会把方向带偏。', tags: ['每日一学', '创业'], source: '实践总结', date: '2026-12-14', status: '已确认', origin: 'public', dailyDate: '2026-12-14' },
+          { id: 'daily-24', lib: 'personal', title: '睡眠是恢复的第一位', content: '肌肉在训练时破坏、在睡觉时修复；睡不够 7 小时，训练效果和第二天的工作状态都打折。减脂期尤其要保证睡眠，缺觉会放大饥饿感。训练计划里要给睡眠留位置。', tags: ['每日一学', '健身'], source: '学习总结', date: '2026-12-15', status: '已确认', origin: 'public', dailyDate: '2026-12-15' },
+          { id: 'daily-25', lib: 'work', title: '需求的三种来源检查', content: '用户说的、数据看的、业务要的。三者对不上的需求先别做，先搞清冲突的原因。用户说的不一定是真需求，要看行为数据验证。三种来源一致的需求，优先级天然更高。', tags: ['每日一学', '需求'], source: '实践总结', date: '2026-12-16', status: '已确认', origin: 'public', dailyDate: '2026-12-16' },
+          { id: 'daily-26', lib: 'comm', title: '向上汇报的电梯法则', content: '30 秒说清三件事：结论、依据、需要什么。领导追问再展开，不追问就停。准备汇报时先写 30 秒版，再写完整版；30 秒版写不出来，说明结论还没想清楚。', tags: ['每日一学', '汇报'], source: '实践总结', date: '2026-12-17', status: '已确认', origin: 'public', dailyDate: '2026-12-17' },
+          { id: 'daily-27', lib: 'industry', title: 'AI Agent 落地的分层', content: '工具层（调用接口做事）、工作流层（多步骤串起来）、业务层（接进真实业务流程，有异常处理和人工兜底）。很多 Agent 演示停在工具层，真正落地要做到业务层。评估一个 Agent 产品先问它在哪一层。', tags: ['每日一学', 'AI'], source: '行业观察', date: '2026-12-18', status: '已确认', origin: 'public', dailyDate: '2026-12-18' },
+          { id: 'daily-28', lib: 'job', title: '面试后 24 小时内发感谢信', content: '短，三句话：感谢 + 重申一个你和岗位的匹配点 + 期待下一步。不要长篇总结，不要提面试中答错的地方。感谢信是加分项，不是补考。', tags: ['每日一学', '面试'], source: '实践总结', date: '2026-12-19', status: '已确认', origin: 'public', dailyDate: '2026-12-19' },
+          { id: 'daily-29', lib: 'content', title: '创业想法的三个检验问题', content: '谁付费（具体到哪类人）、付多少钱（能不能覆盖成本）、为什么现在（为什么以前没人做成）。答不上来就先别动手，先去验证。三个问题都答得上，才值得投入时间。', tags: ['每日一学', '创业'], source: '实践总结', date: '2026-12-20', status: '已确认', origin: 'public', dailyDate: '2026-12-20' },
+          { id: 'daily-30', lib: 'personal', title: '复利的三个应用', content: '知识（每天学一点，持续一年拉开差距）、内容（每篇都是资产，长期有人看）、健康（每天动一点，十年后是两个人）。共同点：早期看不到效果，靠系统不靠意志力。', tags: ['每日一学', '成长'], source: '学习总结', date: '2026-12-21', status: '已确认', origin: 'public', dailyDate: '2026-12-21' }
         ];
 
         /* ---------------- 状态 ---------------- */
-        var SEED_VERSION = 2;
+        var SEED_VERSION = 3;
         var seedVersion = SEED_VERSION;
         var deletedBuiltInIds = [];
+        var learnedDailyIds = [];
         var entries = load();
         var currentLib = 'all';
         var query = '';
         var editingId = null;
         var deletingId = null;
+        var dailyHistoryMode = false;
 
         function load() {
           try {
@@ -440,6 +496,8 @@
                 var stored = parsed.entries.map(normalize).filter(Boolean);
                 deletedBuiltInIds = Object.prototype.toString.call(parsed.deletedBuiltInIds) === '[object Array]'
                   ? parsed.deletedBuiltInIds.map(String) : [];
+                learnedDailyIds = Object.prototype.toString.call(parsed.learnedDailyIds) === '[object Array]'
+                  ? parsed.learnedDailyIds.map(String) : [];
                 var storedSeed = typeof parsed.seedVersion === 'number' ? parsed.seedVersion : 1;
                 seedVersion = storedSeed;
                 if (storedSeed < SEED_VERSION) {
@@ -454,7 +512,7 @@
                   try {
                     localStorage.setItem(STORAGE_KEY, JSON.stringify({
                       version: 1, seedVersion: seedVersion,
-                      deletedBuiltInIds: deletedBuiltInIds, entries: stored
+                      deletedBuiltInIds: deletedBuiltInIds, learnedDailyIds: learnedDailyIds, entries: stored
                     }));
                   } catch (e2) { /* 存储不可用时仅内存合并 */ }
                 }
@@ -464,12 +522,13 @@
           } catch (e) { /* 存储不可用时退回种子数据 */ }
           seedVersion = SEED_VERSION;
           deletedBuiltInIds = [];
-          return SEED.slice();
+          learnedDailyIds = [];
+          return SEED.map(normalize).filter(Boolean);
         }
         function normalize(e) {
           if (!e || typeof e !== 'object' || !e.title) return null;
           var validLibs = { work: 1, job: 1, industry: 1, content: 1, comm: 1, personal: 1, calib: 1 };
-          return {
+          var out = {
             id: String(e.id || uid()),
             lib: validLibs[e.lib] ? e.lib : 'work',
             title: String(e.title),
@@ -480,10 +539,25 @@
             status: e.status === '待确认' ? '待确认' : '已确认',
             origin: e.origin === 'mine' ? 'mine' : 'public'
           };
+          if (e.dailyDate) out.dailyDate = String(e.dailyDate);
+          return out;
         }
         function save() {
-          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, seedVersion: seedVersion, deletedBuiltInIds: deletedBuiltInIds, entries: entries })); }
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, seedVersion: seedVersion, deletedBuiltInIds: deletedBuiltInIds, learnedDailyIds: learnedDailyIds, entries: entries })); }
           catch (e) { showToast('浏览器存储不可用，本次修改可能无法保留'); }
+        }
+        function isUnlocked(e) {
+          if (!e.dailyDate) return true;
+          return e.dailyDate <= todayStr();
+        }
+        function unlockedEntries() {
+          return entries.filter(isUnlocked);
+        }
+        function allDailyEntries() {
+          return entries.filter(function (e) { return !!e.dailyDate; });
+        }
+        function unlockedDailyEntries() {
+          return allDailyEntries().filter(isUnlocked).slice().sort(function (a, b) { return a.dailyDate < b.dailyDate ? -1 : (a.dailyDate > b.dailyDate ? 1 : 0); });
         }
         function uid() { return 'm' + Date.now().toString(36) + Math.floor(Math.random() * 1e6).toString(36); }
         function todayStr() {
@@ -501,6 +575,7 @@
         var noteEl = document.getElementById('resultNote');
         var searchEl = document.getElementById('searchInput');
         var clearEl = document.getElementById('clearSearch');
+        var dailySectionEl = document.getElementById('dailySection');
 
         function esc(s) {
           return String(s).replace(/[&<>"']/g, function (c) {
@@ -515,20 +590,27 @@
           catch (e) { return t; }
         }
         function matches(e) {
+          if (!isUnlocked(e)) return false;
+          if (dailyHistoryMode) {
+            if (!e.dailyDate) return false;
+            if (!query) return true;
+            var hayH = (e.title + '\n' + e.content + '\n' + e.tags.join(' ') + '\n' + e.source).toLowerCase();
+            return hayH.indexOf(query.toLowerCase()) !== -1;
+          }
           if (currentLib !== 'all' && e.lib !== currentLib) return false;
           if (!query) return true;
           var hay = (e.title + '\n' + e.content + '\n' + e.tags.join(' ') + '\n' + e.source).toLowerCase();
           return hay.indexOf(query.toLowerCase()) !== -1;
         }
         function countByLib(id) {
-          return entries.filter(function (e) { return id === 'all' || e.lib === id; }).length;
+          return unlockedEntries().filter(function (e) { return id === 'all' || e.lib === id; }).length;
         }
 
         function renderNav() {
           var html = '';
           var tabs = [{ id: 'all', name: '索引' }].concat(LIBS);
           tabs.forEach(function (t) {
-            html += '<li><button type="button" class="lib-btn' + (currentLib === t.id ? ' active' : '') +
+            html += '<li><button type="button" class="lib-btn' + (!dailyHistoryMode && currentLib === t.id ? ' active' : '') +
               '" data-lib="' + t.id + '">' + esc(t.name) +
               '<span class="count">' + countByLib(t.id) + '</span></button></li>';
           });
@@ -537,6 +619,7 @@
           for (var i = 0; i < btns.length; i++) {
             btns[i].addEventListener('click', function () {
               currentLib = this.getAttribute('data-lib');
+              dailyHistoryMode = false;
               render();
             });
           }
@@ -546,10 +629,13 @@
           var tagsHtml = e.tags.length
             ? '<span>标签：' + e.tags.map(function (t) { return '<span class="tag-chip">#' + highlight(t) + '</span>'; }).join(' ') + '</span>'
             : '';
+          var isLearned = e.dailyDate && learnedDailyIds.indexOf(e.id) !== -1;
           return '<article class="card" data-id="' + esc(e.id) + '">' +
             '<div class="card-head"><h3 class="card-title">' + highlight(e.title) + '</h3>' +
             '<div class="badges">' +
               '<span class="badge lib">' + esc(libName(e.lib)) + '</span>' +
+              (e.dailyDate ? '<span class="badge" style="background:var(--primary-soft);color:var(--primary);font-weight:600;">每日一学 · ' + esc(e.dailyDate.slice(5)) + '</span>' : '') +
+              (isLearned ? '<span class="badge ok">✓ 已学</span>' : '') +
               (e.origin === 'mine' ? '<span class="badge mine">我的</span>' : '<span class="badge pub">公开</span>') +
               '<span class="badge ' + (e.status === '待确认' ? 'pending' : 'ok') + '">' + esc(e.status) + '</span>' +
             '</div></div>' +
@@ -565,24 +651,122 @@
           '</article>';
         }
 
+        function renderDaily() {
+          if (!dailySectionEl) return;
+          if (dailyHistoryMode || currentLib !== 'all' || query) {
+            dailySectionEl.innerHTML = '';
+            dailySectionEl.style.display = 'none';
+            return;
+          }
+          dailySectionEl.style.display = '';
+          var today = todayStr();
+          var START = '2026-11-22';
+          var END = '2026-12-21';
+          var unlocked = unlockedDailyEntries();
+          var learnedCount = unlocked.filter(function (e) { return learnedDailyIds.indexOf(e.id) !== -1; }).length;
+          var progressText = unlocked.length ? '已解锁 ' + unlocked.length + ' / 30 · 已学 ' + learnedCount + ' 条' : '共 30 天 · 11 月 22 日起每天一条';
+
+          if (today < START) {
+            var first = null;
+            entries.forEach(function (e) { if (e.id === 'daily-01') first = e; });
+            var firstTitle = first ? first.title : 'MECE 原则：拆解问题不重叠、不遗漏';
+            dailySectionEl.innerHTML =
+              '<div class="daily-card">' +
+                '<div class="daily-head"><span class="daily-kicker">每日一学</span><span class="daily-date">2026-11-22 起 · 每天 12:30 提醒</span><span class="daily-remind">' + esc(progressText) + '</span></div>' +
+                '<p class="daily-empty-note">每日一学从 11 月 22 日开始，每天解锁一条实用的新知识点，并自动归入对应知识库。</p>' +
+                '<p style="margin:10px 0 0;"><span style="color:var(--muted);font-size:12.5px;">首条预告</span><br><strong style="color:var(--ink);font-size:15px;">' + esc(firstTitle) + '</strong></p>' +
+                '<div class="daily-actions"><button type="button" class="btn small" id="dailyHistoryBtn" disabled style="opacity:.55;cursor:default;">查看往期（11 月 22 日后可用）</button></div>' +
+              '</div>';
+            return;
+          }
+
+          var isAfter = today > END;
+          var target = null;
+          if (isAfter) {
+            entries.forEach(function (e) { if (e.id === 'daily-30') target = e; });
+            if (!target && unlocked.length) target = unlocked[unlocked.length - 1];
+          } else {
+            entries.forEach(function (e) { if (e.dailyDate === today) target = e; });
+            if (!target) {
+              /* 当天条目被本地删除时，回退到最近一条已解锁 */
+              if (unlocked.length) target = unlocked[unlocked.length - 1];
+            }
+          }
+          if (!target) {
+            dailySectionEl.innerHTML =
+              '<div class="daily-card"><div class="daily-head"><span class="daily-kicker">每日一学</span><span class="daily-date">' + esc(today) + '</span></div>' +
+              '<p class="daily-empty-note">今日知识点暂不可用，可能已被删除。可在下方「查看往期」里找回其他已解锁内容。</p>' +
+              '<div class="daily-actions"><button type="button" class="btn small" id="dailyHistoryBtn">查看往期（' + unlocked.length + ' 条）</button></div></div>';
+            bindDailyButtons(null);
+            return;
+          }
+          var learned = learnedDailyIds.indexOf(target.id) !== -1;
+          var tagsHtml = target.tags.map(function (t) { return '<span class="tag-chip">#' + esc(t) + '</span>'; }).join(' ');
+          dailySectionEl.innerHTML =
+            '<div class="daily-card">' +
+              '<div class="daily-head"><span class="daily-kicker">' + (isAfter ? '每日一学 · 已完结' : '每日一学 · 今日') + '</span><span class="daily-date">' + esc(target.dailyDate) + ' · ' + esc(libName(target.lib)) + '</span><span class="daily-remind">每天 12:30 提醒 · ' + esc(progressText) + '</span></div>' +
+              (isAfter ? '<p class="daily-empty-note" style="margin:0 0 8px;">30 天已学完，下一批即将更新。下面是最后一条：</p>' : '') +
+              '<h2 class="daily-title">' + esc(target.title) + '</h2>' +
+              '<div class="daily-content">' + esc(target.content) + '</div>' +
+              '<div class="daily-meta"><span>' + tagsHtml + '</span><span>来源：' + esc(target.source) + '</span></div>' +
+              '<div class="daily-actions">' +
+                '<button type="button" class="btn small' + (learned ? ' learned' : ' primary') + '" id="dailyLearnBtn">' + (learned ? '✓ 已学' : '标记已学') + '</button>' +
+                '<button type="button" class="btn small" id="dailyHistoryBtn">查看往期（' + unlocked.length + ' 条）</button>' +
+                (isAfter ? '' : '<span style="color:var(--muted);font-size:12.5px;align-self:center;">学完点「标记已学」，进度只存在本设备</span>') +
+              '</div>' +
+            '</div>';
+          bindDailyButtons(target);
+        }
+        function bindDailyButtons(target) {
+          var histBtn = document.getElementById('dailyHistoryBtn');
+          if (histBtn && !histBtn.disabled) {
+            histBtn.addEventListener('click', function () {
+              dailyHistoryMode = true;
+              render();
+              window.scrollTo(0, 0);
+            });
+          }
+          var learnBtn = document.getElementById('dailyLearnBtn');
+          if (learnBtn && target) {
+            learnBtn.addEventListener('click', function () {
+              var idx = learnedDailyIds.indexOf(target.id);
+              if (idx === -1) { learnedDailyIds.push(target.id); showToast('已标记为已学'); }
+              else { learnedDailyIds.splice(idx, 1); showToast('已取消已学标记'); }
+              save();
+              render();
+            });
+          }
+        }
+
         function render() {
           renderNav();
+          renderDaily();
           var visible = entries.filter(matches);
-          if (currentLib === 'all' && !query) {
-            noteEl.textContent = '共 ' + entries.length + ' 条 · 按库分组展示';
+          if (dailyHistoryMode) {
+            visible = visible.slice().sort(function (a, b) { return a.dailyDate < b.dailyDate ? 1 : (a.dailyDate > b.dailyDate ? -1 : 0); });
+          }
+          var totalUnlocked = unlockedEntries().length;
+          if (dailyHistoryMode) {
+            noteEl.textContent = '每日一学 · 往期共 ' + visible.length + ' 条（按日期倒序） · 点上方分区可返回';
+          } else if (currentLib === 'all' && !query) {
+            noteEl.textContent = '共 ' + totalUnlocked + ' 条 · 按库分组展示';
           } else {
             noteEl.textContent = '找到 ' + visible.length + ' 条' + (query ? ' · 关键词「' + query + '」' : '') + (currentLib !== 'all' ? ' · ' + libName(currentLib) : '');
           }
           if (!visible.length) {
             mainEl.innerHTML = '<div class="empty">' +
-              (entries.length === 0
+              (totalUnlocked === 0 && entries.length === 0
                 ? '知识库是空的。点右上角「新增条目」添加第一条，或用「导入 JSON」恢复备份。'
-                : '没有匹配的条目。换个关键词，或切回「索引」看全部。') +
+                : (dailyHistoryMode ? '还没有已解锁的每日一学。11 月 22 日起每天解锁一条。' : '没有匹配的条目。换个关键词，或切回「索引」看全部。')) +
               '</div>';
             return;
           }
           var html = '';
-          if (currentLib === 'all') {
+          if (dailyHistoryMode) {
+            html += '<h2 class="group-title">每日一学 · 往期<span class="g-count">' + visible.length + ' 条 · 按日期倒序</span></h2>';
+            html += '<div class="cards">' + visible.map(cardHtml).join('') + '</div>';
+            html += '<div style="margin-top:14px;"><button type="button" class="btn small" id="backToIndexBtn">← 返回索引</button></div>';
+          } else if (currentLib === 'all') {
             LIBS.forEach(function (l) {
               var group = visible.filter(function (e) { return e.lib === l.id; });
               if (!group.length) return;
@@ -593,6 +777,8 @@
             html += '<div class="cards" style="margin-top:14px;">' + visible.map(cardHtml).join('') + '</div>';
           }
           mainEl.innerHTML = html;
+          var backBtn = document.getElementById('backToIndexBtn');
+          if (backBtn) backBtn.addEventListener('click', function () { dailyHistoryMode = false; currentLib = 'all'; render(); });
           var cards = mainEl.querySelectorAll('.card');
           for (var i = 0; i < cards.length; i++) {
             (function (card) {
@@ -606,6 +792,7 @@
         /* ---------------- 搜索 ---------------- */
         searchEl.addEventListener('input', function () {
           query = this.value.trim();
+          if (query) dailyHistoryMode = false;
           clearEl.style.display = query ? 'inline-flex' : 'none';
           render();
         });
@@ -702,6 +889,8 @@
           if (target && target.origin === 'public' && deletedBuiltInIds.indexOf(target.id) === -1) {
             deletedBuiltInIds.push(target.id);
           }
+          var li = learnedDailyIds.indexOf(deletingId);
+          if (li !== -1) learnedDailyIds.splice(li, 1);
           entries = entries.filter(function (x) { return x.id !== deletingId; });
           save(); closeConfirm(); render();
           showToast('已删除（仅本设备）');
@@ -709,7 +898,7 @@
 
         /* ---------------- 导出 / 导入 ---------------- */
         document.getElementById('exportBtn').addEventListener('click', function () {
-          var payload = JSON.stringify({ app: 'personal-kb', version: 1, seedVersion: seedVersion, deletedBuiltInIds: deletedBuiltInIds, exportedAt: todayStr(), entries: entries }, null, 2);
+          var payload = JSON.stringify({ app: 'personal-kb', version: 1, seedVersion: seedVersion, deletedBuiltInIds: deletedBuiltInIds, learnedDailyIds: learnedDailyIds, exportedAt: todayStr(), entries: entries }, null, 2);
           var blob = new Blob([payload], { type: 'application/json' });
           var url = URL.createObjectURL(blob);
           var a = document.createElement('a');
@@ -737,6 +926,11 @@
               if (data && typeof data === 'object' && Object.prototype.toString.call(data.deletedBuiltInIds) === '[object Array]') {
                 data.deletedBuiltInIds.map(String).forEach(function (id) {
                   if (deletedBuiltInIds.indexOf(id) === -1) deletedBuiltInIds.push(id);
+                });
+              }
+              if (data && typeof data === 'object' && Object.prototype.toString.call(data.learnedDailyIds) === '[object Array]') {
+                data.learnedDailyIds.map(String).forEach(function (id) {
+                  if (learnedDailyIds.indexOf(id) === -1) learnedDailyIds.push(id);
                 });
               }
               if (data && typeof data === 'object' && typeof data.seedVersion === 'number') {
