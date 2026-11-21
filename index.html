@@ -348,6 +348,7 @@
           { id: 'job',      name: '求职库' },
           { id: 'industry', name: '行业库' },
           { id: 'content',  name: '内容与创业库' },
+          { id: 'comm',     name: '表达与沟通' },
           { id: 'personal', name: '个人库' },
           { id: 'calib',    name: '口径库' }
         ];
@@ -387,6 +388,20 @@
           { id: 'c4', lib: 'content', title: '选题清单', content: '#1 WeRide Q3 Robotaxi 收入首次破亿，钱到底从哪来？\n#2 我是做 Robotaxi 运营的产品经理，这号只讲 AI 落地\n#3 一个运营看板到底该长什么样？\n#4 我用 Claude/Cursor 写 PRD 的真实一天\n#5 路权管理：无人车上路最难的一关不是技术，是流程\n#6 8 年 AI 产品，从人脸识别到无人车，我换赛道的 3 个判断\n#7 Waymo 被禁上高速，Pony.ai 收入 +165%：安全事件怎么改写运营规则\n#8 用 AI 做一次竞品分析，省了我半天\n#9 副业第一年目标 3–5 万，我为什么先做内容、不接项目\n#10 工单自动化 80% 是怎么做到的？先讲分流逻辑，再讲人。', tags: ['自媒体', '选题'], source: '个人记录', date: '2026-11-21', status: '已确认', origin: 'public' },
           { id: 'c5', lib: 'content', title: '脱敏红线', content: '不出现公司内部数字；成就只用简历口径且不挂公司名；不出现内部系统名；不点名合作方及资源；不承诺收入、不讲个股。', tags: ['自媒体', '规范'], source: '个人记录', date: '2026-11-21', status: '已确认', origin: 'public' },
 
+          /* 表达与沟通 */
+          { id: 'comm-1', lib: 'comm', title: '汇报的底层结构：结论先行', content: '先说结论和需要拍板的事，再展开现状和数据。结构：① 结论（一句话）② 现状（有什么，用数字）③ 缺口（缺什么）④ 方案（怎么补，分阶段）⑤ 决策点（需要领导定的事，逐项列清）。带着方案和建议去，不只抛问题。反模式：从头讲过程、把问题留给领导、数字没有口径。', tags: ['汇报'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+          { id: 'comm-2', lib: 'comm', title: '汇报前自查：口径、真数、待确认', content: '三个检查点：① 口径：每个数字能说清来源和计算方式 ② 真数与演示数分开标，演示用的模拟数字不写进结论 ③ 待确认项单独列，不混进结论，会上被问到再定。演示前顺手点两下关键页面，确认能打开、数据能加载。', tags: ['汇报'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+          { id: 'comm-3', lib: 'comm', title: '汇报材料：先有决策问题再有内容', content: '材料服务于决策，不是展示工作量。一页一个结论；细节和待确认项放附录。评审前先想清三件事：推哪几项、追哪几项、有哪几项不想在会上问。会上被问住不丢人，数字口径说不清才丢人。', tags: ['汇报'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+          { id: 'comm-4', lib: 'comm', title: '一句话一个意思', content: '长句拆开；先说主体和动作，再补条件和限定。数字必须准确，不确定的数字标待确认，不编。写完读一遍，删掉所有不推进结论的句子。', tags: ['表达'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+          { id: 'comm-5', lib: 'comm', title: '结构化表达：总分总', content: '先给结论，再给 2–3 个支撑点，每个点一句话，最后回扣结论。开会发言、写消息、做汇报都用同一套结构。支撑点超过 3 个就分组，先分类再展开。', tags: ['表达'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+          { id: 'comm-6', lib: 'comm', title: '表达的口径纪律', content: '同一个词、同一个数字，在所有场合保持一致；口径变了就同步改所有材料。口径不一致时并列保留、标明来源，等决策，不私下统一。引用别人的原话用引号，不改写成自己的话。', tags: ['表达'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+          { id: 'comm-7', lib: 'comm', title: 'PRD 写作：结构完整、文字精炼', content: '范围 / 优先级 / 字段 / 校验 / 状态 / 权限 / 异常 / 验收。每个字段写清类型、必填、校验规则；异常场景单独列，不藏在正流程里；状态机画出来，不用文字绕。', tags: ['写作'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+          { id: 'comm-8', lib: 'comm', title: '内容写作：钩子—结构—互动', content: '开头一句话勾住人（反常识的数字或判断），中间 2–3 节讲透，结尾留互动问句。标题准备两个备选，先定钩子再写正文。写给人阅读：短句、短段落，一个段落一个意思，能用列表不用长句。', tags: ['写作'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+          { id: 'comm-9', lib: 'comm', title: '写作前的准备：先列提纲再动笔', content: '动笔前先列提纲：结论是什么、支撑点是哪几个、每个点用什么证据。提纲想不清楚，写出来的文章一定散。长文档先写目录和每节一句话摘要，确认结构通了再展开写正文。', tags: ['写作'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+          { id: 'comm-10', lib: 'comm', title: '跨部门协作：先对齐再动手', content: '动手前说清三件事：目标是什么、谁负责什么、交付标准和对齐时间。分歧先对事实再对方案，不上升到人。评审前先把架构和逻辑过一遍，分歧在会前解决，不带到会上。', tags: ['沟通'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+          { id: 'comm-11', lib: 'comm', title: '向上沟通：带着进展和卡点去', content: '定期同步三件事：做了什么、下一步是什么、有什么卡点需要协调。卡点要说清影响和备选方案，不只报问题。领导的反馈落成清单，下次汇报带着落实进展去，形成闭环。', tags: ['沟通'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+          { id: 'comm-12', lib: 'comm', title: '重要的沟通结论落字', content: '会后发纪要，写清结论、待办、负责人、时间。口头约定也补一条文字确认。纪要不是流水账，只写结论和待办，过程一句话带过。', tags: ['沟通'], source: '工作实践总结', date: '2026-11-21', status: '已确认', origin: 'public' },
+
           /* 个人库 */
           { id: 'p1', lib: 'personal', title: '英语 5 条纠正规则', content: '一句话一个意思；work on a system vs work for a company；efficiency of managing；keep them running smoothly；create more value；句子 ≤15 词、数字必须准确。', tags: ['英语', '口语'], source: '学习记录', date: '2026-11-21', status: '已确认', origin: 'public' },
           { id: 'p2', lib: 'personal', title: '英语词汇种子', content: 'commercial launch、fully driverless、revenue up …% year on year、fleet、geofence、letter of intent (LOI)、rollout、conditional on、autonomy subscription、regulatory restriction / ban', tags: ['英语', '词汇'], source: '学习记录', date: '2026-11-21', status: '已确认', origin: 'public' },
@@ -407,6 +422,9 @@
         ];
 
         /* ---------------- 状态 ---------------- */
+        var SEED_VERSION = 2;
+        var seedVersion = SEED_VERSION;
+        var deletedBuiltInIds = [];
         var entries = load();
         var currentLib = 'all';
         var query = '';
@@ -419,17 +437,41 @@
             if (raw) {
               var parsed = JSON.parse(raw);
               if (parsed && Object.prototype.toString.call(parsed.entries) === '[object Array]') {
-                return parsed.entries.map(normalize).filter(Boolean);
+                var stored = parsed.entries.map(normalize).filter(Boolean);
+                deletedBuiltInIds = Object.prototype.toString.call(parsed.deletedBuiltInIds) === '[object Array]'
+                  ? parsed.deletedBuiltInIds.map(String) : [];
+                var storedSeed = typeof parsed.seedVersion === 'number' ? parsed.seedVersion : 1;
+                seedVersion = storedSeed;
+                if (storedSeed < SEED_VERSION) {
+                  var existingIds = {};
+                  stored.forEach(function (x) { existingIds[x.id] = true; });
+                  var deletedSet = {};
+                  deletedBuiltInIds.forEach(function (id) { deletedSet[id] = true; });
+                  SEED.forEach(function (s) {
+                    if (!existingIds[s.id] && !deletedSet[s.id]) stored.push(normalize(s));
+                  });
+                  seedVersion = SEED_VERSION;
+                  try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                      version: 1, seedVersion: seedVersion,
+                      deletedBuiltInIds: deletedBuiltInIds, entries: stored
+                    }));
+                  } catch (e2) { /* 存储不可用时仅内存合并 */ }
+                }
+                return stored;
               }
             }
           } catch (e) { /* 存储不可用时退回种子数据 */ }
+          seedVersion = SEED_VERSION;
+          deletedBuiltInIds = [];
           return SEED.slice();
         }
         function normalize(e) {
           if (!e || typeof e !== 'object' || !e.title) return null;
+          var validLibs = { work: 1, job: 1, industry: 1, content: 1, comm: 1, personal: 1, calib: 1 };
           return {
             id: String(e.id || uid()),
-            lib: libName(e.lib) === '未分类' && e.lib !== 'work' && e.lib !== 'job' && e.lib !== 'industry' && e.lib !== 'content' && e.lib !== 'personal' && e.lib !== 'calib' ? 'work' : e.lib,
+            lib: validLibs[e.lib] ? e.lib : 'work',
             title: String(e.title),
             content: String(e.content || ''),
             tags: Object.prototype.toString.call(e.tags) === '[object Array]' ? e.tags.map(String) : splitTags(e.tags || ''),
@@ -440,7 +482,7 @@
           };
         }
         function save() {
-          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, entries: entries })); }
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, seedVersion: seedVersion, deletedBuiltInIds: deletedBuiltInIds, entries: entries })); }
           catch (e) { showToast('浏览器存储不可用，本次修改可能无法保留'); }
         }
         function uid() { return 'm' + Date.now().toString(36) + Math.floor(Math.random() * 1e6).toString(36); }
@@ -656,6 +698,10 @@
         confirmOverlay.addEventListener('click', function (ev) { if (ev.target === confirmOverlay) closeConfirm(); });
         document.getElementById('confirmDelete').addEventListener('click', function () {
           if (!deletingId) return;
+          var target = entries.filter(function (x) { return x.id === deletingId; })[0];
+          if (target && target.origin === 'public' && deletedBuiltInIds.indexOf(target.id) === -1) {
+            deletedBuiltInIds.push(target.id);
+          }
           entries = entries.filter(function (x) { return x.id !== deletingId; });
           save(); closeConfirm(); render();
           showToast('已删除（仅本设备）');
@@ -663,7 +709,7 @@
 
         /* ---------------- 导出 / 导入 ---------------- */
         document.getElementById('exportBtn').addEventListener('click', function () {
-          var payload = JSON.stringify({ app: 'personal-kb', version: 1, exportedAt: todayStr(), entries: entries }, null, 2);
+          var payload = JSON.stringify({ app: 'personal-kb', version: 1, seedVersion: seedVersion, deletedBuiltInIds: deletedBuiltInIds, exportedAt: todayStr(), entries: entries }, null, 2);
           var blob = new Blob([payload], { type: 'application/json' });
           var url = URL.createObjectURL(blob);
           var a = document.createElement('a');
@@ -688,8 +734,18 @@
               var data = JSON.parse(String(reader.result));
               var list = Object.prototype.toString.call(data) === '[object Array]' ? data : data.entries;
               if (!list || Object.prototype.toString.call(list) !== '[object Array]') throw new Error('bad format');
+              if (data && typeof data === 'object' && Object.prototype.toString.call(data.deletedBuiltInIds) === '[object Array]') {
+                data.deletedBuiltInIds.map(String).forEach(function (id) {
+                  if (deletedBuiltInIds.indexOf(id) === -1) deletedBuiltInIds.push(id);
+                });
+              }
+              if (data && typeof data === 'object' && typeof data.seedVersion === 'number') {
+                seedVersion = Math.max(seedVersion, data.seedVersion);
+              }
               var added = 0, updated = 0;
               list.map(normalize).filter(Boolean).forEach(function (imp) {
+                var di = deletedBuiltInIds.indexOf(imp.id);
+                if (di !== -1) deletedBuiltInIds.splice(di, 1);
                 var idx = -1;
                 for (var i = 0; i < entries.length; i++) if (entries[i].id === imp.id) { idx = i; break; }
                 if (idx >= 0) { entries[idx] = imp; updated++; }
